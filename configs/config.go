@@ -7,6 +7,7 @@ import (
 
 type Config struct {
 	Port       string `mapstructure:"PORT"`
+	SmsSvcUrl  string `mapstructure:"SMS_SVC_URL"`
 	DbHost     string `mapstructure:"DB_HOST"`
 	DbUser     string `mapstructure:"DB_USER"`
 	DbPassword string `mapstructure:"DB_PASSWORD"`

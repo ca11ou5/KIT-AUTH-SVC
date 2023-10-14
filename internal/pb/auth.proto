@@ -3,9 +3,12 @@ package auth;
 option go_package = "./internal/pb";
 
 service AuthService {
-  rpc SignUp (SignUpRequest) returns (SignUpResponse) {}
+  rpc SignUp(SignUpRequest) returns (SignUpResponse) {}
+  rpc VerifyPhone(VerifyPhoneRequest) returns (VerifyPhoneResponse) {}
+  rpc CheckUser(CheckUserRequest) returns (CheckUserResponse) {}
 }
 
+//SignUp
 message SignUpRequest {
   string phoneNumber = 1;
   string password = 2;
@@ -15,6 +18,27 @@ message SignUpRequest {
 }
 
 message SignUpResponse {
+  int64 status = 1;
+  string error = 2;
+}
+
+//VerifyPhone
+message VerifyPhoneRequest {
+  string phoneNumber = 1;
+  string code = 2;
+}
+
+message VerifyPhoneResponse {
+  int64 status = 1;
+  string error = 2;
+}
+
+//SendCode
+message CheckUserRequest {
+  string phoneNumber = 1;
+}
+
+message CheckUserResponse {
   int64 status = 1;
   string error = 2;
 }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package sms;
+option go_package = "./internal/pb";
+
+service SmsService {
+  rpc SendCode(SendCodeRequest) returns (SendCodeResponse) {}
+}
+
+//SendCode
+message SendCodeRequest {
+  string phoneNumber = 1;
+}
+
+message SendCodeResponse {
+  int64 status = 1;
+  string error = 2;
+}

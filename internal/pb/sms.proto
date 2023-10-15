@@ -14,4 +14,5 @@ message SendCodeRequest {
 message SendCodeResponse {
   int64 status = 1;
   string error = 2;
+  string code = 3;
 }

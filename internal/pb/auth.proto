@@ -6,6 +6,7 @@ service AuthService {
   rpc SignUp(SignUpRequest) returns (SignUpResponse) {}
   rpc VerifyPhone(VerifyPhoneRequest) returns (VerifyPhoneResponse) {}
   rpc CheckUser(CheckUserRequest) returns (CheckUserResponse) {}
+  rpc SignIn(SignInRequest) returns (SignInResponse) {}
 }
 
 //SignUp
@@ -39,6 +40,17 @@ message CheckUserRequest {
 }
 
 message CheckUserResponse {
+  int64 status = 1;
+  string error = 2;
+}
+
+//SignIn
+message SignInRequest {
+  string phoneNumber = 1;
+  string password = 2;
+}
+
+message SignInResponse {
   int64 status = 1;
   string error = 2;
 }
